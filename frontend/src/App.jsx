@@ -2,12 +2,15 @@ import React from 'react'
 import LandingPage from './LandingComponents/LandingPage';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import ErrorPage from './ExtraComponents/ErrorPage';
+import { ToastContainer } from 'react-toastify';
+import AuthProvider from './handles/AuthProvider';
+import InitialRoute from './InitialRoute';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage />,
+    element: <InitialRoute />,
     errorElement: <ErrorPage />
 
   }
@@ -17,7 +20,10 @@ const App = () => {
 
   return (
     <>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+        <ToastContainer limit={5} />
+      </AuthProvider>
     </>
   )
 }

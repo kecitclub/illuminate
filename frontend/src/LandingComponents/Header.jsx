@@ -24,6 +24,7 @@ const Header = () => {
 
 
     
+    
   return (
     <div className='h-[10vh] w-full flex justify-between items-center px-6 text-black text-lg relative z-[999]'>
       <img src={blacklogo} alt="logo" className='h-[200%] mt-[5%]' />
