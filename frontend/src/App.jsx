@@ -5,14 +5,21 @@ import ErrorPage from './ExtraComponents/ErrorPage';
 import { ToastContainer } from 'react-toastify';
 import AuthProvider from './handles/AuthProvider';
 import InitialRoute from './InitialRoute';
+import Complaints from './UserPageComponents/Complaints';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <InitialRoute />,
-    errorElement: <ErrorPage />
-
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/',
+        element: <Complaints />,
+        errorElement: <ErrorPage />
+      },
+    ]
   }
 ])
 
