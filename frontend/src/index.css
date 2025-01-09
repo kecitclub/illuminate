@@ -42,156 +42,38 @@
     width: 100%;
 }
 
+/* 
+::-webkit-scrollbar {
+    width: 12px; 
+}
 
 
-/* this is css for complain register */
+::-webkit-scrollbar-thumb {
+    height: 10%;
+    background: #6a5d7b; 
+    border-radius: 10px; 
+    border: 2px solid #3c3247; 
+}
 
+::-webkit-scrollbar-thumb:hover {
+    background: #554a63; 
+}
 
-/* this is the css of compain component */
-.complainComponent{
-    width: 80%;
-    background-color: white;
-    color:black;
-    border-radius: 10px;
-    display:block;
-    margin:30px;
-    padding:10px;
-    position:relative;
-    box-shadow: 0px 1px 10px 0px;
-    transition: all 0.3s ease-in-out;
-    margin-left: auto;
-    margin-right: 100px;
-   
- }
-
-
- .complainComponentExp{
-    
-    width: 80%;
-    background-color: rgb(241, 236, 236);
-    color:black;
-    border-radius: 10px;
-    display:block;
-    margin:40px;
-    text-align: left;
-    position:relative;
-    padding:10px;
-    box-shadow: 0px 1px 10px 0px;
-    transition: all 0.3s ease-in-out;
-    margin-left: auto;
-    margin-right: 100px;
+::-webkit-scrollbar-track {
+    background: #ece7f3; 
+    border-radius: 10px; 
+}
   
+html {
+    scrollbar-width: thin; 
+    scrollbar-color: #6a5d7b #ece7f3;
+} */
 
- }
- /* .complainComponent:hover{
-    
-    height:60%;
-    transform: scale(1.1);
-    transition: transform 0.3s ease-in-out;
-    display: block;
-
- } */
- /* .complainComponent:hover .complainDescription {
-    display: block;
-
- }
-
- .complainComponent:hover  .complainAddress{
-    display: block;
-
- } */
-
- 
-
-
-
- .complainName{
-    font-size: 40px;
-    font-family: 'Trebuchet MS';
-    display: flex;
-    flex-wrap: nowrap;
-
-    
-
- }
-
- .complainDescription{
-    display: block;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    
- }
-
- /* this is address css */
- .complainAddress{
-    display: flex;
-    justify-content: flex-end;
-
- }
-
- .complainAddressExp{
-    display:flex;
-    justify-content: left;
-    font-size: 20px;
-}
- 
-
-
- .maincontainer{
-   max-width:100%;
-   height:auto;
-   position:relative;
-   margin-left: auto;
- 
-
- }
-
-
-  .complainStatus{
-    background-color: rgb(179, 14, 14);
-    color:white;
-    width: 66px;
-    font-size: 12px;
-    border-radius: 3px;
-    position: relative;
-    margin-left: auto;
-    display: flex;
-    justify-content: center;
-  
-}
-.complainStatusExp{
-    color:black;
-    font-size: 20px;
-    position: relative;
-    display: flex;
-    justify-content: left;
-    
-   
-} 
-
-.complainDate{
-    color:grey;
-    font-size: 10px;
-}
-    
-
-.complainUsername{
-    font-size: 15px;
+.no-scrollbar {
+    overflow: auto; /* Ensure content is still scrollable */
+    scrollbar-width: none; /* For Firefox */
 }
 
-.complainUsernameExp{
-    font-size: 20px;
-    position: relative;
-    display: flex;
-    justify-content: left;
-
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
 }
-
-.complainStatusText{
-    /* background-color:rgb(154, 236, 247); */
-    border-radius: 5px;
-    color:red;
-}
-
-
-
-

@@ -6,6 +6,9 @@ import { ToastContainer } from 'react-toastify';
 import AuthProvider from './handles/AuthProvider';
 import InitialRoute from './InitialRoute';
 import Complaints from './UserPageComponents/Complaints';
+import IssueComplaintPage from './UserPageComponents/IssueComplaintPage';
+import MyComplaints from './UserPageComponents/MyComplaints';
+import ChatBot from './UserPageComponents/ChatBot';
 
 
 const router = createBrowserRouter([
@@ -19,6 +22,21 @@ const router = createBrowserRouter([
         element: <Complaints />,
         errorElement: <ErrorPage />
       },
+      {
+        path: 'issueComplaints/',
+        element: <IssueComplaintPage />,
+        errorElement: <ErrorPage />
+      },
+      {
+        path: 'myComplaints/',
+        element: <MyComplaints />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: 'chatbot/',
+        element: <ChatBot />,
+        errorElement: <ErrorPage />,
+      }
     ]
   }
 ])

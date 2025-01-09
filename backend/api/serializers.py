@@ -16,9 +16,12 @@ class UserSerialzer(serializers.ModelSerializer):
 
 
 class ComplaintSerialzer(serializers.ModelSerializer):
+    
+    username = serializers.CharField(source='user.username', read_only=True)
+
     class Meta:
         model = Complaint
-        fields = ['id', 'title', 'description', 'created_at']
+        fields = ['id', 'title', 'description','progress','location', 'created_at', 'username']
 
     def create(self, validated_data):
         request = self.context.get('request')
