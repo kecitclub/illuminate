@@ -18,10 +18,9 @@ class UserSerialzer(serializers.ModelSerializer):
 class ComplaintSerialzer(serializers.ModelSerializer):
     class Meta:
         model = Complaint
-        fields = ['id', 'title', 'description', 'created_at', 'user']
+        fields = ['id', 'title', 'description', 'created_at']
 
     def create(self, validated_data):
         request = self.context.get('request')
-        if request and hasattr(request, 'user'):
-            validated_data['user'] = request.user
+        validated_data['user'] = request.user
         return super().create(validated_data)
