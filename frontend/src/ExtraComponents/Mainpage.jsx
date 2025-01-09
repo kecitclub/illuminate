@@ -1,11 +1,10 @@
 import Complain from "./Complain"
 import data from "../data.json" 
-import Header from "../LandingComponents/Header"
+
 
 export const Mainpage = () =>{    
     return(
         <>
-        <Header/>
         
             <div className="maincontainer">
                 {/* this is the list  of complain */}
