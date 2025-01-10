@@ -1,6 +1,7 @@
 ﻿import React, { useState } from 'react'
 import ChatComponent from './ChatComponent';
 import chatbotimg from '../Assets/chatbot.png';
+import ProgressReportCard from './ProgressReportCard';
 const ChatBot = () => {
     
     return (
@@ -16,7 +17,7 @@ const ChatBot = () => {
         </div>
        </div>
        
-    <div className='h-[82vh] w-[700px]  ml-auto drop-shadow-md flex flex-col justify-center items-center '>
+    <div className='h-[85vh] w-[700px]  ml-auto mt-5 drop-shadow-md flex flex-col justify-center items-center '>
         <div className='h-[78vh] w-[90%] -mt-[1%] font-bold '>
             <div className='h-full  w-full flex flex-col justify-center items-center '>
             <h1 className='text-3xl h-[90px] w-full flex justify-center  font-sans items-center bg-[#ECFBF5] text-blue-600'>AI Assistant</h1>    

@@ -79,7 +79,7 @@ const ChatComponent = () => {
 
   return (
     <div className='h-full w-full mt-[0.5%] rounded-t bg-[#ECFBF5] flex-col'>
-        <div className='h-[90%] w-full overflow-y-scroll no-scrollbar px-6 py-4 flex flex-col bg-gray'>
+        <div className='h-[80%]  w-full overflow-y-scroll no-scrollbar px-6 py-4 flex flex-col bg-gray'>
 
             {chatLog.map((message, index) => (
             <h1 className={`${message.isUser ? 'text-left self-start w-[50%] mb-12 bg-grey text-[15px]' : "text-right self-end w-[50%] mb-12 "}`} key={index}>{message.isUser ? 'You:  ': "Jana Sewa(Bot):  " } <span className=' px-4 py-2 text-left'>
