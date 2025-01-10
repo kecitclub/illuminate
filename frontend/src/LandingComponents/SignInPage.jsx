@@ -74,9 +74,9 @@ const SignInPage = ({setSignUpForm, handleFormModalClick}) => {
         </div>
         <div className=' w-full flex justify-center items-center gap-4'>
             <FontAwesomeIcon icon={faKey} className='text-3xl self-end'  />
-            <input value={formData.password} onChange={handleFormInput} name='password' type="password" placeholder='Set a Password' className='bg-theme-secondary text-xl focus:outline-none text-gray-900 h-[6vh] w-[80%] px-6 rounded placeholder:text-xl border-b-2 border-black'/>
+            <input value={formData.password} onChange={handleFormInput} name='password' type="password" placeholder='Enter your Password' className='bg-theme-secondary text-xl focus:outline-none text-gray-900 h-[6vh] w-[80%] px-6 rounded placeholder:text-xl border-b-2 border-black'/>
         </div>
-        <button onClick={handleFormSubmit} className='bg-theme-highlight w-[85%] h-[6vh] rounded'>Log In</button>
+        <button onClick={handleFormSubmit} className='bg-green-500 text-white hover:bg-green-600 w-[85%] h-[6vh] rounded'>Log In</button>
         <div className='w-full flex justify-center items-center -mt-6'>
             <h1>Already Have An Account? <span onClick={() => setSignUpForm(true)} className='text-blue-500 cursor-pointer'>Sign Up Instead.</span></h1>
         </div>

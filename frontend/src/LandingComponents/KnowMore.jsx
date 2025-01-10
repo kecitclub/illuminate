@@ -4,6 +4,7 @@ import slide2 from '../Assets/slide2.png'
 import slide3 from '../Assets/slide3.png'
 import slide4 from '../Assets/slide4.png'
 import slide5 from '../Assets/slide5.png'
+import slide6 from '../Assets/slide6.png'
 
 
 const KnowMore = () => {
@@ -27,6 +28,7 @@ const KnowMore = () => {
                      <img className="w-[50%] p-5 rounded-[29px] "src={slide3} alt='img3'/>
                      <img className="w-[50%] p-5 rounded-[29px] "src={slide4} alt='img4'/>
                      <img className="w-[50%] p-5 rounded-[29px] "src={slide5} alt='img5'/>
+                     <img className="w-[50%] p-5 rounded-[29px] "src={slide6} alt='img6'/>
 
                 </div>    
             </div>
