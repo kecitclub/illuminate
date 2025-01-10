@@ -50,7 +50,7 @@ const Complaints = () => {
     <div className="h-[90vh] w-full flex flex-col justify-center items-center">
       <div className="h-[80vh] w-[90%] mt-[7%] font-bold">
         <input
-          className="w-full max-w-md pl-10 pr-4 py-2 border flex ml-auto border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none transition hover:ring-2 hover:ring-blue-300"
+          className="w-full -mt-[3%] max-w-md pl-10 pr-4 py-2 border flex ml-auto border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none transition hover:ring-2 hover:ring-blue-300"
           placeholder="Search"
           onChange={(e) => setSearchval(e.target.value)}
         />

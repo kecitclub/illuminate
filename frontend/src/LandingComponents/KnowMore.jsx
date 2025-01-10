@@ -20,7 +20,7 @@ const KnowMore = () => {
                     If your region has a similar initiative, you can participate by submitting your concerns through their website, mobile application, or designated service centers. Take advantage of this platform to ensure your voice is heard and contribute to building a better community for everyone. </h4> <br />
                     
                     
-                <h1 className='text-5xl'>Jana Sewa Gallery</h1>
+                <h1 className='text-5xl'>App Gallery</h1>
                 <hr></hr>
                 <div className=' w-full flex flex-wrap '>
                      <img className="w-[50%] p-5 rounded-[29px] "src={slide1} alt='img1'/>
