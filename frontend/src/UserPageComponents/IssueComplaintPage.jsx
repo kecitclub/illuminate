@@ -58,7 +58,7 @@ const IssueComplaintPage = () => {
   return (
     <div className='h-[90vh] w-full flex flex-col justify-center items-center mb-48'>
         <div className='h-[80vh] w-[90%] mt-[6%] font-bold'>
-            <h1 className='text-3xl font-customParaTwo w-full bg-gray-800 text-white rounded-b py-2 px-12'>Complaint form for issuing complaint</h1>
+            <h1 className='text-3xl font-customParaTwo w-full bg-gray-800 text-white rounded-lg py-5 px-12'>Complaint form for issuing complaint</h1>
             <form className='h-full px-8 py-4 flex flex-col gap-8 pt-12'>
               <div className='h-auto w-[40%] flex justify-between items-end'>
                 <label htmlFor="title" className='text-2xl '>Title: </label>

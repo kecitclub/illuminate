@@ -53,3 +53,14 @@ class UserComplaintView(APIView):
         complaints = Complaint.objects.filter(user=request.user)
         serializer = ComplaintSerialzer(complaints, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+class VerifyAdminView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+        if user.is_admin:
+            return Response({"detail": "You are an admin"}, status=status.HTTP_200_OK)
+        
+        return Response({"detail": "Only an admin can login"}, status=status.HTTP_401_UNAUTHORIZED)
