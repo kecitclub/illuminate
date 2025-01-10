@@ -9,6 +9,7 @@ import Complaints from './UserPageComponents/Complaints';
 import IssueComplaintPage from './UserPageComponents/IssueComplaintPage';
 import MyComplaints from './UserPageComponents/MyComplaints';
 import ChatBot from './UserPageComponents/ChatBot';
+import AdminLoginRoute from './AdminComponents/AdminLoginRoute';
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
       }
     ]
+  },
+  {
+    path: 'admin/',
+    element: <AdminLoginRoute />,
   }
 ])
 const App = () => {
