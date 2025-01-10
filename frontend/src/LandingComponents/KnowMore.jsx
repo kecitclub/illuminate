@@ -17,19 +17,7 @@ const KnowMore = () => {
                     The platform emphasizes accessibility and convenience, allowing users to register complaints either online or through in-person channels. Whether it’s reporting a malfunctioning streetlight, raising concerns about local governance, or seeking redress for administrative delays, Jana Sewa ensures that every grievance is acknowledged and routed to the appropriate authorities for resolution. By fostering accountability and transparency, Jana Sewa plays a vital role in strengthening the relationship between the government and its citizens, contributing to a more responsive and efficient governance framework.
 
                     If your region has a similar initiative, you can participate by submitting your concerns through their website, mobile application, or designated service centers. Take advantage of this platform to ensure your voice is heard and contribute to building a better community for everyone. </h4> <br />
-                    <div>
-                    <h1 className="text-5xl ">Features</h1>
-                        <hr></hr>
-                        </div>
-                        <div className="flex justify-center">
-  <ul className="list-disc pl-5 space-y-2 text-l text-left">
-     <li className="text-2xl">Sign Seamlessly</li>
-     <li className="text-2xl">Complaint Management</li>
-     <li className="text-2xl">Secure Authentication System</li>
-     <li className="text-2xl">Citizen Engagement & Follow up</li>
-  </ul>
-</div>
-<br /> <br />
+                    
                     
                 <h1 className='text-5xl'>Jana Sewa Gallery</h1>
                 <hr></hr>
