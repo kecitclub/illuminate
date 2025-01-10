@@ -23,7 +23,7 @@ const Slider = () => {
   }, []);
 
   const startAutoSlide = () => {
-    slideInterval.current = setInterval(goToNextSlide, 1500);
+    slideInterval.current = setInterval(goToNextSlide, 2000);
   };
 
   const stopAutoSlide = () => {
