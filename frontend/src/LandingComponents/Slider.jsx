@@ -34,7 +34,7 @@ const Slider = () => {
 
   return (
     <div
-      className="absolute mt-28 w-[50%] max-w-4xl ml-[630px]  rounded-lg  overflow-hidden"
+      className="absolute w-[50%] max-w-4xl top-[23%]  left-[44%] rounded-lg  overflow-hidden"
       onMouseEnter={stopAutoSlide}
       onMouseLeave={startAutoSlide}
     >

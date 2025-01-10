@@ -18,3 +18,10 @@ class Complaint(models.Model):
             MaxValueValidator(100)
         ],default=0)
     admin_verified = models.BooleanField(default=False)
+
+class ProgressReport(models.Model):
+    complaint = models.ForeignKey(Complaint, on_delete=models.CASCADE, related_name='progress_reports')
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    image = models.ImageField(upload_to='progress_reports/', blank=True, null=True)  
+    created_at = models.DateTimeField(auto_now_add=True)  

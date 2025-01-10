@@ -11,7 +11,6 @@ const VerifyComplaint = () => {
         const getComplaints = async () => {
             try{
                 const response = await backend_api.get('complaint/');
-                console.log(response.data);
                 setComplaints(response.data);
             }catch(error){
                 if(error.response){
@@ -27,6 +26,11 @@ const VerifyComplaint = () => {
         getComplaints();
     }, []);
 
+    const handleRemoveComplaint = (complaintId) => {
+        setComplaints(prevComplaints =>
+          prevComplaints.filter(complaint => complaint.id !== complaintId)
+        );
+    };
 
 
   return (
@@ -35,11 +39,38 @@ const VerifyComplaint = () => {
         <span>Complaints from users across the ward for admin</span>
     </h1>
     <div className='h-auto w-full mt-16 flex flex-col justify-center items-center gap-12'>
-        {complaints.map(complain => (
-            <AdminComplaintCard key={complain.id} title={complain.title} location={complain.location} description={complain.description} progress={complain.progress} username={complain.username} status={complain.admin_verified} />
-        ))}
-        <div className='h-[5vh] w-full'></div>
-    </div>
+    {/* {complaints.filter(complain => !complain.admin_verified).map(complain =>  (
+        <AdminComplaintCard 
+            key={complain.id} 
+            id={complain.id}
+            title={complain.title} 
+            location={complain.location} 
+            description={complain.description} 
+            progress={complain.progress} 
+            username={complain.username} 
+            status={complain.admin_verified} 
+            handleRemoveComplaint={handleRemoveComplaint}
+        />
+    ))} */}
+        {complaints.filter(complain => !complain.admin_verified).map(complain => {
+            console.log("Complaint in VerifyComplaint:", complain);
+            return (
+                <AdminComplaintCard 
+                    id={complain.id}
+                    key={complain.id} 
+                    complaint_id={complain.id}
+                    title={complain.title} 
+                    location={complain.location} 
+                    description={complain.description} 
+                    progress={complain.progress} 
+                    username={complain.username} 
+                    status={complain.admin_verified} 
+                    handleRemoveComplaint={handleRemoveComplaint}
+                />
+            );
+        })}
+    <div className='h-[5vh] w-full'></div>
+</div>
 
 
 

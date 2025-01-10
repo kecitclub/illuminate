@@ -43,12 +43,12 @@ const Header = () => {
         <img src={blacklogo} alt="logo" className='h-[170%] mt-[3%] pointer-events-none select-none' />
         <div className={`h-full w-[60%] flex justify-end items-center  `}>
             <div ref={navigatorsRef} className={`h-full w-[90%] flex justify-end items-center gap-6 mt-[5%] ${isMenuOpen ? "" : "hidden"}`}>
-                <NavLink to={'/admin'} className={({ isActive }) =>
+                <NavLink to={'verifyComplaint'} className={({ isActive }) =>
                     isActive
                         ? "text-xl font-customHeading underlineAnimator relative border-b-2 border-black select-none"
                         : "text-xl font-customHeading underlineAnimator relative select-none"
                     } >Verify Complaints</NavLink>
-                <NavLink to={'/'} className={({ isActive }) =>
+                <NavLink to={'update'} className={({ isActive }) =>
                     isActive
                         ? "text-xl font-customHeading underlineAnimator relative border-b-2 border-black select-none"
                         : "text-xl font-customHeading underlineAnimator relative select-none"

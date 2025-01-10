@@ -1,8 +1,16 @@
-﻿import { faBuilding, faLocationPin } from '@fortawesome/free-solid-svg-icons'
+﻿import { faBuilding, faList, faLocationPin } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const ComplaintCard = ({title, description, progress, username, location}) => {
+const ComplaintCard = ({id,title, description, progress, username, location}) => {
+
+    const navigate = useNavigate();
+
+    const handleSeeDetails = () => {
+        navigate('complaint/'+id);
+    }
+
 
   return (
     <div className='h-[20vh] w-[80%] bg-gradient-to-r from-white to-green-100 rounded-lg px-4 py-2 relative'>
@@ -11,6 +19,9 @@ const ComplaintCard = ({title, description, progress, username, location}) => {
         <p className='text-end'><span className='mr-2'><FontAwesomeIcon icon={faLocationPin} /></span>{location ? location : 'Location Here'}</p>
         <div className='absolute top-2 right-2 text-green-900' >
             <h1><span className='mr-2'><FontAwesomeIcon icon={faBuilding} className='inline' /></span>Progress: {progress != null ? progress : '0'}% complete</h1>
+        </div>
+        <div onClick={handleSeeDetails} className='absolute bottom-2 left-2 text-green-900 hover:text-green-700 hover:cursor-pointer' >
+            <h1 ><span className='mr-2'><FontAwesomeIcon icon={faList} className='inline' /></span>See Details</h1>
         </div>
     </div>
   )

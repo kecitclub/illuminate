@@ -60,7 +60,7 @@ const AdminLoginRoute = () => {
                     localStorage.setItem('accessToken', accessToken);
                     localStorage.setItem('refreshToken', refreshToken);
                     setIsAdminLoggedIn(true);
-                    navigate('/admin'); 
+                    navigate('/admin/verifyComplaint')  ; 
             }else{
                 toast("You are not an admin.", {
                     className: 'custom-toast-fail',

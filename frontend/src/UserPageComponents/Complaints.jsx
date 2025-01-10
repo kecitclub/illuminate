@@ -36,7 +36,7 @@ const Complaints = () => {
 
             <div className='h-auto w-full mt-16 flex flex-col justify-center items-center gap-12'>
                 {complaints.map(complain => (
-                    <ComplaintCard key={complain.id} title={complain.title} location={complain.location} description={complain.description} progress={complain.progress} username={complain.username} />
+                    <ComplaintCard key={complain.id} title={complain.title} id={complain.id} location={complain.location} description={complain.description} progress={complain.progress} username={complain.username} />
                 ))}
                 <div className='h-[5vh] w-full'></div>
             </div>

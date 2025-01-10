@@ -77,3 +77,16 @@ html {
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }
+
+
+/* For all browsers */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Hide spin buttons in Chrome, Safari, and Edge */
+    margin: 0; /* Remove extra margin */
+}
+
+/* For Firefox */
+input[type=number] {
+    -moz-appearance: textfield; /* Change the appearance to a regular text input */
+}

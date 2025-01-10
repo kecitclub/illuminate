@@ -12,6 +12,9 @@ import ChatBot from './UserPageComponents/ChatBot';
 import AdminLoginRoute from './AdminComponents/AdminLoginRoute';
 import AdminAuthProvider from './handles/AdminAuthProvider';
 import VerifyComplaint from './AdminComponents/VerifyComplaint';
+import UpdateComplaints from './AdminComponents/UpdateComplaints';
+import WriteAReportPage from './AdminComponents/WriteAReportPage';
+import ViewProgressReport from './UserPageComponents/ViewProgressReport';
 
 
 const router = createBrowserRouter([
@@ -39,18 +42,33 @@ const router = createBrowserRouter([
         path: 'chatbot/',
         element: <ChatBot />,
         errorElement: <ErrorPage />,
+      },
+      {
+        path: 'complaint/:complaint_id',
+        element: <ViewProgressReport />,
+        errorElement: <ErrorPage />
       }
     ]
   },
   {
-    path: 'admin/',
+    path: 'admin',
     element: <AdminLoginRoute />,
     children: [
       {
-        path: '',
+        path: 'verifyComplaint',
         element: <VerifyComplaint />,
         errorElement: <ErrorPage />,
-      }
+      },
+      {
+        path: 'update',
+        element: <UpdateComplaints />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: 'writeAReport/:complaint_id',
+        element: <WriteAReportPage />,
+        errorElement: <ErrorPage />,
+      },
     ]
   }
 ])

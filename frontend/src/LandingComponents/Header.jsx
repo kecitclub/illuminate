@@ -1,4 +1,4 @@
-﻿import React, { useRef, useState } from 'react'
+﻿import React, { createContext, useRef, useState } from 'react'
 import SignUpPage from './SignUpPage';
 import blacklogo from '/blacklogo.png';
 import SignInPage from './SignInPage';
@@ -23,7 +23,7 @@ const Header = () => {
     }
 
 
-    
+
     
   return (
     <div className='h-[10vh] w-full flex justify-between items-center px-6 text-black text-lg relative z-[999]'>

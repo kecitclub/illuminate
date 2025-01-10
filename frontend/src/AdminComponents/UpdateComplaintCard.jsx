@@ -5,7 +5,7 @@ import { backend_api } from '../handles/ApiHandles';
 import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 
-const AdminComplaintCard = ({id,complaint_id, title, description, progress, username, location, status, handleRemoveComplaint}) => {
+const UpdateComplaintCard = ({id, title, description, progress, username, location, status}) => {
 
 
     const [isExpanded, setIsExpanded] = useState(false);
@@ -14,39 +14,12 @@ const AdminComplaintCard = ({id,complaint_id, title, description, progress, user
         setIsExpanded(!isExpanded);
     }
 
-    const handleVerify = async () => {
-        try{
-            const complaint = id;
-            const response = await backend_api.post('verifyComplaint/', { complaint });
-            if(response.status == 200){
-                toast.success('Verified the complaint')
-                handleRemoveComplaint(id);
-            }
-        }catch(error){
-            if(error.response){
-                toast.error("Couldn't verify the complaint successfully");
-            }
-            else if(error.request){
-                toast.error("Couldn't connect to the server");
-                console.log(error)
-            }
-            if(error){
-                toast.error("Some external error occurred");
-            }
-        }
-    }
-
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
     const navigateToWriteAReport = (e) => {
         e.stopPropagation();
-        console.log(id)
-        console.log(username);
+        navigate('/admin/writeAReport/' + id)
     }
-
-    useEffect(() => {
-        console.log("ID in AdminComplaintCard:", id);
-    }, [id]);
-
+    
   return (
     <div onClick={handleExpand} className={`${isExpanded ? 'h-[40vh]' : 'h-[20vh] '} transition-all duration-100 w-[80%] bg-gradient-to-r from-white to-green-100 rounded-lg px-4 py-2 relative flex flex-col gap-4`}>
         
@@ -75,17 +48,10 @@ const AdminComplaintCard = ({id,complaint_id, title, description, progress, user
             </button >
         </div>
 
-        <div className={`${isExpanded ? '' : 'hidden'} group absolute right-3 bottom-3 active:scale-[1.02] ${status ? '' : 'hidden'}`}>
+        <div className={`${isExpanded ? '' : 'hidden'} group absolute right-3 bottom-3 active:scale-[1.02]`}>
             <button onClick={navigateToWriteAReport} className='px-4 py-1 bg-green-500 rounded'>
                 <span>Write A Report On This Issue</span>
                 <FontAwesomeIcon className={`group-hover:inline hidden ml-2  transition-all duration-150`} icon={faPen} />    
-            </button>
-        </div>
-
-        <div className={`${isExpanded ? '' : 'hidden'} group absolute right-3 bottom-3 active:scale-[1.02] ${status ? 'hidden' : ''}`}>
-            <button onClick={handleVerify} className='px-4 py-1 bg-green-500 rounded'>
-                <span>Verify This Complaint</span>
-                <FontAwesomeIcon className={`group-hover:inline hidden ml-2  transition-all duration-150`} icon={faCheck} />    
             </button>
         </div>
 
@@ -93,4 +59,4 @@ const AdminComplaintCard = ({id,complaint_id, title, description, progress, user
   )
 }
 
-export default AdminComplaintCard;
+export default UpdateComplaintCard;
