@@ -67,7 +67,7 @@ const Navigators = () => {
             </div>
             <div className='h-full flex justify-center items-center w-[10%] mt-[5%]'>
                 {isMenuOpen ? (
-                    <FontAwesomeIcon onClick={() => {setIsMenuOpen(false); animateOnClick();}} className='cursor-pointer text-3xl active:scale-[1.08] transition-all duration-100' icon={faXmark} />
+                    <FontAwesomeIcon onClick={() => {setIsMenuOpen(false);}} className='cursor-pointer text-3xl active:scale-[1.08] transition-all duration-100' icon={faXmark} />
                 ): (
                     <FontAwesomeIcon onClick={() => setIsMenuOpen(true)} className='cursor-pointer text-3xl active:scale-[1.08] transition-all duration-100' icon={faBars} />
                 )}

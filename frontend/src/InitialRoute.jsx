@@ -4,10 +4,12 @@ import UserHomePage from './UserPageComponents/UserHomePage';
 import LandingPage from './LandingComponents/LandingPage';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 const InitialRoute = () => {
 
     const {isAuthenticated, setIsAuthenticated} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     useLayoutEffect(() => {
         const isTokenExpired = (token) => {
@@ -38,6 +40,7 @@ const InitialRoute = () => {
                     } catch (error) {
                         localStorage.removeItem('accessToken');
                         localStorage.removeItem('refreshToken');
+                        navigate('/');
                         return;
                     }
                 };
