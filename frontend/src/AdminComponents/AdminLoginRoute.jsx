@@ -5,6 +5,8 @@ import { faKey, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toast } from 'react-toastify';
 import ClipLoader from "react-spinners/ClipLoader";
+import AdminHomePage from './AdminHomePage';
+import { backend_api } from '../handles/ApiHandles';
 
 const AdminLoginRoute = () => {
 
@@ -48,36 +50,46 @@ const AdminLoginRoute = () => {
             return;
         }
 
-        // try {
-        //     const isAdminResponse = await backend_api.post('verifyAdmin/', formData);
-        //     const { is_admin } = isAdminResponse.data;
-        //     if(is_admin){
-        //         const response = await backend_api.post('token/', formData);
-        //         const accessToken = response.data.access;
-        //         const refreshToken = response.data.refresh;
-                
-        //         localStorage.setItem('accessToken', accessToken);
-        //         localStorage.setItem('refreshToken', refreshToken);
-        //         setIsAdminLoggedIn(true);
-        //         navigate('/admin'); 
-        //     }else{
-        //         toast("You are not an admin.", {
-        //             className: 'custom-toast-fail',
-        //             progressClassName: 'custom-progress-bar-fail',
-        //         });
-        //     }
+        try {
+            const isAdminResponse = await backend_api.post('verifyAdmin/', formData);
+            if(isAdminResponse.status == 200){
+                    const response = await backend_api.post('token/', formData);
+                    const accessToken = response.data.access;
+                    const refreshToken = response.data.refresh;
+                    
+                    localStorage.setItem('accessToken', accessToken);
+                    localStorage.setItem('refreshToken', refreshToken);
+                    setIsAdminLoggedIn(true);
+                    navigate('/admin'); 
+            }else{
+                toast("You are not an admin.", {
+                    className: 'custom-toast-fail',
+                    progressClassName: 'custom-progress-bar-fail',
+                });
+            }
 
-
-        // } catch (error) {
-        //     console.log(error);
-        // }finally{
-        //     setLoading(false);
-        // }
+        } catch (error) {
+            if(error.response){
+                if(error.response.status === 403){
+                    toast.error("You cannot login here.");
+                }else{
+                    toast.error("Couldn't log in.");
+                }
+            }
+            else if(error.request){
+                    toast.error("Some error occurred while logging in.");
+            }else{
+                toast.error("Some error occurred");
+            }
+            console.log(error);
+        }finally{
+            setLoading(false);
+        }
     
-        // setFormData({
-        //     username: "",
-        //     password: "",
-        // });
+        setFormData({
+            username: "",
+            password: "",
+        });
         console.log(formData);
     };
 
@@ -85,7 +97,7 @@ const AdminLoginRoute = () => {
   return (
     <>
         {isAdminLoggedIn ? (
-            <AdminDashBoard />
+            <AdminHomePage />
         ): (
         <div className='h-screen w-screen flex flex-col gap-4 justify-center items-center bg-[rgba(120,120,120)]'>
             <form onSubmit={logIn} className='h-[50vh] w-[26%] rounded-xl shadow-dense bg-gray-950 border-2 border-white flex flex-col gap-10 px-4 py-2 items-center relative' >

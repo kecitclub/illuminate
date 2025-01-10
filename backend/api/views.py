@@ -5,6 +5,8 @@ from rest_framework import status
 from rest_framework.response import Response
 from .serializers import UserSerialzer, ComplaintSerialzer
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from django.contrib.auth import authenticate
+
 
 
 class UserView(APIView):
@@ -54,13 +56,23 @@ class UserComplaintView(APIView):
         serializer = ComplaintSerialzer(complaints, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
+
 class VerifyAdminView(APIView):
+    permission_classes = [AllowAny]
 
-    permission_classes = [IsAuthenticated]
+    def post(self, request):
+        username = request.data.get('username')
+        password = request.data.get('password')
 
-    def get(self, request):
-        user = request.user
-        if user.is_admin:
+        if not username or not password:
+            return Response({"detail": "Username and password are required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        user = authenticate(username=username, password=password)
+
+        if user is None:
+            return Response({"detail": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
+
+        if getattr(user, 'is_admin', False):  
             return Response({"detail": "You are an admin"}, status=status.HTTP_200_OK)
-        
-        return Response({"detail": "Only an admin can login"}, status=status.HTTP_401_UNAUTHORIZED)
+
+        return Response({"detail": "Only an admin can login"}, status=status.HTTP_403_FORBIDDEN)

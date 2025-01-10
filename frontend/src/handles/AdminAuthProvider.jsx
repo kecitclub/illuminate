@@ -1,9 +1,6 @@
 ﻿import React, { createContext, useState } from 'react';
 
-export const AdminAuthContext = createContext({
-    isAdminLoggedIn: false,
-    setIsAdminLoggedIn: () => {}
-});
+export const AdminAuthContext = createContext();
 
 const AdminAuthProvider = ({children}) => {
 

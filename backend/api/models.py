@@ -17,3 +17,4 @@ class Complaint(models.Model):
             MinValueValidator(0),
             MaxValueValidator(100)
         ],default=0)
+    admin_verified = models.BooleanField(default=False)

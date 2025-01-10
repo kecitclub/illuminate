@@ -6,9 +6,9 @@ class UserSerialzer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ['id', 'is_admin', 'username', 'password']
-        # extra_kwargs = {
-        #     'is_admin': {'read_only': True},
-        # }
+        extra_kwargs = {
+            'is_admin': {'read_only': True},
+        }
 
     def create(self, validated_data):
         user = CustomUser.objects.create_user(**validated_data)
@@ -21,7 +21,7 @@ class ComplaintSerialzer(serializers.ModelSerializer):
 
     class Meta:
         model = Complaint
-        fields = ['id', 'title', 'description','progress','location', 'created_at', 'username']
+        fields = ['id', 'title', 'description','progress','location', 'created_at', 'username', 'admin_verified']
 
     def create(self, validated_data):
         request = self.context.get('request')

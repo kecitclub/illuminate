@@ -10,6 +10,8 @@ import IssueComplaintPage from './UserPageComponents/IssueComplaintPage';
 import MyComplaints from './UserPageComponents/MyComplaints';
 import ChatBot from './UserPageComponents/ChatBot';
 import AdminLoginRoute from './AdminComponents/AdminLoginRoute';
+import AdminAuthProvider from './handles/AdminAuthProvider';
+import VerifyComplaint from './AdminComponents/VerifyComplaint';
 
 
 const router = createBrowserRouter([
@@ -43,16 +45,25 @@ const router = createBrowserRouter([
   {
     path: 'admin/',
     element: <AdminLoginRoute />,
+    children: [
+      {
+        path: '',
+        element: <VerifyComplaint />,
+        errorElement: <ErrorPage />,
+      }
+    ]
   }
 ])
 const App = () => {
 
   return (
     <>
+    <AdminAuthProvider>
       <AuthProvider>
         <RouterProvider router={router} />
         <ToastContainer limit={5} />
       </AuthProvider>
+    </AdminAuthProvider>
     </>
   )
 }
