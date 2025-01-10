@@ -53,11 +53,11 @@ const Header = () => {
                         ? "text-xl font-customHeading underlineAnimator relative border-b-2 border-black select-none"
                         : "text-xl font-customHeading underlineAnimator relative select-none"
                     } >Update Complaints</NavLink>
-                <NavLink to={'/'} className={({ isActive }) =>
+                {/* <NavLink to={'/'} className={({ isActive }) =>
                     isActive
                         ? "text-xl font-customHeading underlineAnimator relative border-b-2 border-black select-none"
                         : "text-xl font-customHeading underlineAnimator relative select-none"
-                    } >Delete A Complaint</NavLink>
+                    } >Delete A Complaint</NavLink> */}
                 <button onClick={logOut} className={"text-xl font-customHeading underlineAnimator relative select-none"}>Log Out</button>
             </div>
             <div className='h-full flex justify-center items-center w-[10%] mt-[5%]'>

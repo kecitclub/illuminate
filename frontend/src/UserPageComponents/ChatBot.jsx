@@ -1,7 +1,6 @@
 ﻿import React, { useState } from 'react'
 import ChatComponent from './ChatComponent';
 import chatbotimg from '../Assets/chatbot.png';
-import ProgressReportCard from './ProgressReportCard';
 const ChatBot = () => {
     
     return (

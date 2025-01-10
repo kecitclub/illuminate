@@ -34,7 +34,7 @@ const MyComplaints = () => {
                     <h1>No complaints by you yet</h1>
                 )}
                 {complaints.map(complain => (
-                    <ComplaintCard key={complain.id} title={complain.title} location={complain.location} description={complain.description} progress={complain.progress} username={complain.username} />
+                    <ComplaintCard key={complain.id} id={complain.id} title={complain.title} location={complain.location} description={complain.description} progress={complain.progress} username={complain.username} />
                 ))}
                 
                 <div className='h-[5vh] w-full'></div>

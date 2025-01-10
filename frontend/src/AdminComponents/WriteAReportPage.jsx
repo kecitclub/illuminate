@@ -6,7 +6,8 @@ import { backend_api } from '../handles/ApiHandles';
 import { toast } from 'react-toastify';
 
 const WriteAReportPage = () => {
-    const { complaint_id } = useParams(); // Get the complaint_id from the URL
+    
+    const { complaint_id } = useParams(); 
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -14,7 +15,7 @@ const WriteAReportPage = () => {
     const [formData, setFormData] = useState({
         title: '',
         description: '',
-        image: null, // Store the image file here
+        image: null,
     });
 
     // Handle form input changes
@@ -31,7 +32,7 @@ const WriteAReportPage = () => {
         // Prepare FormData for the POST request
         const data = new FormData();
         data.append('title', formData.title);
-        data.append('progress', formData.progress);
+        // data.append('progress', formData.progress);
         data.append('description', formData.description);
         data.append('complaint', complaint_id); // Attach the complaint ID
         if (formData.image) {
@@ -121,7 +122,7 @@ const WriteAReportPage = () => {
                             className="h-[6vh] rounded px-4 py-2 bg-theme-primary border-b-2 border-black w-[60%] focus:outline-none"
                         />
                     </div>
-                    <div className="h-auto w-[60%] flex justify-between items-end">
+                    {/* <div className="h-auto w-[60%] flex justify-between items-end">
                         <label htmlFor="description" className="text-2xl">
                             Progress(%):{' '}
                         </label>
@@ -135,7 +136,7 @@ const WriteAReportPage = () => {
                             placeholder="Enter the percentage of progress to increment"
                             className="h-[6vh] rounded px-4 py-2 bg-theme-primary border-b-2 border-black w-[60%] focus:outline-none"
                         />
-                    </div>
+                    </div> */}
                     <div className="h-auto w-[60%] flex justify-between items-end">
                         <label htmlFor="image-input" className="text-2xl">
                             Add a progress image:

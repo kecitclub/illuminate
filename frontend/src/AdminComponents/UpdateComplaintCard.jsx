@@ -25,7 +25,7 @@ const UpdateComplaintCard = ({id, title, description, progress, username, locati
         
         <h1 className='text-3xl mb-4 text-black font-bold'>{title ? title + " " : "Title here "}<span className='inline text-sm border-l-2 pl-1 border-black'>{username ? "By " + username : "By User"}</span> </h1>
         
-        <p className={`${isExpanded ? 'h-[16%]' : 'h-[40%]'} line-clamp-2 mb-2 text-gray-600 `} >{description ? description : "Description Here"}</p>
+        <p className={`${isExpanded ? 'h-[16%]' : 'h-[40%]'} line-clamp-2 mb-2 -mt-4 text-gray-600 `} >{description ? description : "Description Here"}</p>
         
         <p className={`${isExpanded ? 'text-start' : 'text-end -mt-[3%]'} `}><span className='mr-2'><FontAwesomeIcon icon={faLocationPin} /></span>{location ? location : 'Location Here'}</p>
         

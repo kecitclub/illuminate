@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom'
 const ComplaintCard = ({id,title, description, progress, username, location}) => {
 
     const navigate = useNavigate();
-
     const handleSeeDetails = () => {
         navigate('complaint/'+id);
     }

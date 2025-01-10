@@ -50,7 +50,7 @@ const Complaints = () => {
     <div className="h-[90vh] w-full flex flex-col justify-center items-center">
       <div className="h-[80vh] w-[90%] mt-[7%] font-bold">
         <input
-          className="w-full -mt-[3%] max-w-md pl-10 pr-4 py-2 border flex ml-auto border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none transition hover:ring-2 hover:ring-blue-300"
+          className="w-full -mt-[5%] mb-4 max-w-md pl-10 pr-4 py-2 border flex ml-auto border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none transition hover:ring-2 hover:ring-blue-300"
           placeholder="Search"
           onChange={(e) => setSearchval(e.target.value)}
         />
@@ -61,19 +61,11 @@ const Complaints = () => {
           </p>
         </h1>
 
-<<<<<<< HEAD
-            <div className='h-auto w-full mt-16 flex flex-col justify-center items-center gap-12'>
-                {complaints.map(complain => (
-                    <ComplaintCard key={complain.id} title={complain.title} id={complain.id} location={complain.location} description={complain.description} progress={complain.progress} username={complain.username} />
-                ))}
-                <div className='h-[5vh] w-full'></div>
-            </div>
-            
-=======
         <div className="h-auto w-full mt-16 flex flex-col justify-center items-center gap-12">
           {filteredComplaints.map((complain) => (
             <ComplaintCard
               key={complain.id}
+              id={complain.id}
               title={complain.title}
               location={complain.location}
               description={complain.description}
@@ -82,7 +74,6 @@ const Complaints = () => {
             />
           ))}
           <div className="h-[5vh] w-full"></div>
->>>>>>> 40ad7f4cab88b7e18b37782cdbdba5ceae909e19
         </div>
       </div>
     </div>
