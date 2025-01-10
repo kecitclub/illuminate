@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -68,7 +69,7 @@ SIMPLE_JWT = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
+    "http://localhost:5174",
 ]
 
 AUTH_USER_MODEL = 'api.CustomUser'

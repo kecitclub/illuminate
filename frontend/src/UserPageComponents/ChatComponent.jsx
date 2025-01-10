@@ -72,7 +72,7 @@ const ChatComponent = () => {
 
 
   return (
-    <div className='h-full w-full bg-gray-400 flex-col'>
+    <div className='h-full w-full bg-gradient-to-r from-white to-green-100 flex-col'>
         <div className='h-[90%] w-full overflow-y-scroll no-scrollbar px-6 py-4 flex flex-col bg-gray'>
             {chatLog.map((message, index) => (
             <h1 className={`${message.isUser ? 'text-left self-start w-[50%] mb-12' : "text-right self-end w-[50%] mb-12"}`} key={index}>{message.isUser ? 'You:  ': "Jana Sewa(Bot):  " } <span className=' px-4 py-2 text-left'>
@@ -81,7 +81,7 @@ const ChatComponent = () => {
             ))}
         </div>
         <div className='h-[10%] flex justify-start items-center gap-4'>
-            <input ref={inputRef} onKeyDown={handleKeyDown} value={userInput} onChange={handleUserInput} type="text" placeholder={`${isLoading ? 'Loading.....': 'Enter the prompt '}`} className={`h-full w-[90%] bg-[rgb(120,120,140)] rounded-r px-10 py-2 focus:outline-none font-normal text-xl placeholder:text-lg ${isLoading ? "": ""}`} disabled={isLoading} />
+            <input ref={inputRef} onKeyDown={handleKeyDown} value={userInput} onChange={handleUserInput} type="text" placeholder={`${isLoading ? 'Loading.....': 'Enter the prompt '}`} className={`h-full w-[90%] bg-gray-800 rounded-r px-10 py-2 focus:outline-none font-normal text-xl placeholder:text-lg ${isLoading ? "": ""}`} disabled={isLoading} />
             <h1 onClick={handleClearChat} className='h-full border-t-2 border-black flex justify-center items-center cursor-pointer hover:text-red-800'><FontAwesomeIcon icon={faBroom} className='text-2xl' />Clear Chat</h1>
             
         </div>
