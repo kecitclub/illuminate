@@ -78,19 +78,29 @@ const ChatComponent = () => {
 
 
   return (
-    <div className='h-full w-full mt-[0.5%] rounded-t bg-gradient-to-r from-white to-green-100 flex-col'>
-        <div className='h-[90%] w-full overflow-y-scroll no-scrollbar px-6 py-4 flex flex-col bg-gray'>
+    <div className='h-full w-full mt-[0.5%] rounded-t bg-[#ECFBF5] flex-col'>
+        <div className='h-[80%]  w-full overflow-y-scroll no-scrollbar px-6 py-4 flex flex-col bg-gray'>
+
             {chatLog.map((message, index) => (
-            <h1 className={`${message.isUser ? 'text-left self-start w-[50%] mb-12' : "text-right self-end w-[50%] mb-12"}`} key={index}>{message.isUser ? 'You:  ': "Jana Sewa(Bot):  " } <span className=' px-4 py-2 text-left'>
-                <ReactMarkdown className={`${message.isUser ? "text-left" : ''} ${message.isUser !== true && message.text.length <= 100 ? 'text-right': 'text-left'}`}>{message.text}</ReactMarkdown>
+            <h1 className={`${message.isUser ? 'text-left self-start w-[50%] mb-12 bg-grey text-[15px]' : "text-right self-end w-[50%] mb-12 "}`} key={index}>{message.isUser ? 'You:  ': "Jana Sewa(Bot):  " } <span className=' px-4 py-2 text-left'>
+                <ReactMarkdown className={`${message.isUser ? "text-left" : ''} ${message.isUser !== true && message.text.length <= 100 ? 'text-right bg-[#D3D3D3] rounded-[5px]': 'text-left bg-[#D3D3D3] rounded-[5px]'}`}>{message.text}</ReactMarkdown>
             </span></h1>
             ))}
         </div>
-        <div className='h-[10%] flex justify-start items-center gap-4'>
-            <input ref={inputRef} onKeyDown={handleKeyDown} value={userInput} onChange={handleUserInput} type="text" placeholder={`${isLoading ? 'Loading.....': 'Enter the prompt '}`} className={`h-full w-[90%] bg-gray-800 text-white rounded-r px-10 py-2 focus:outline-none font-normal text-xl placeholder:text-lg ${isLoading ? "": ""}`} disabled={isLoading} />
-            <h1 onClick={handleClearChat} className='h-full border-t-2 border-black flex justify-center items-center cursor-pointer hover:text-red-800'><FontAwesomeIcon icon={faBroom} className='text-2xl' />Clear Chat</h1>
+
+
+
+        <div className="mt-10">
+        <div className="flex items-center bg-[#ECFBF5] shadow-md rounded-lg p-4">
+          <input
             
+            placeholder={`${isLoading ? 'Loading.....': 'Enter the prompt '}`}
+            className="flex-1 border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+            ref={inputRef} onKeyDown={handleKeyDown} value={userInput} onChange={handleUserInput} type="text"  disabled={isLoading}
+          />
+          <button  onClick={handleClearChat} className="ml-4 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md"><FontAwesomeIcon icon={faBroom} className='text-2xl'/>Clear</button>
         </div>
+      </div>
     </div>
   )
 }

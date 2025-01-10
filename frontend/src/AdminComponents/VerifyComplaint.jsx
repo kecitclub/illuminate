@@ -37,6 +37,8 @@ const VerifyComplaint = () => {
     <div className='h-[90vh] w-full pt-16 px-8'>
     <h1 className="text-3xl font-customParaTwo bg-gray-800 text-white py-5 rounded-lg px-12 flex justify-between items-center">
         <span>Complaints from users across the ward for admin</span>
+        <p className="text-sm text-white-500 ">Total Complaints: {complaints.length}</p>
+
     </h1>
     <div className='h-auto w-full mt-16 flex flex-col justify-center items-center gap-12'>
     {/* {complaints.filter(complain => !complain.admin_verified).map(complain =>  (

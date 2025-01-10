@@ -95,11 +95,6 @@ const SignUpPage = ({setSignUpForm, handleFormModalClick}) => {
             setRePassword('');
         }
     }
-
-
-
-
-
   return (
     <div onClick={handleFormClick} className='h-[78vh] w-[30%] relative z-[99]'>
     <form className='h-full w-full bg-theme-secondary rounded-xl px-6 py-4 border-4 border-white flex flex-col items-center gap-14 pt-12 relative'>
@@ -116,7 +111,7 @@ const SignUpPage = ({setSignUpForm, handleFormModalClick}) => {
             <FontAwesomeIcon icon={faKey} className='text-3xl self-end'  />
             <input value={rePassword} onChange={hanldeRePassword} name='rePassword' type="password" placeholder='Re-Type The Password' className='bg-theme-secondary text-xl focus:outline-none text-gray-900 h-[6vh] w-[80%] px-6 rounded placeholder:text-xl border-b-2 border-black'/>
         </div>
-        <button onClick={handleFormSubmit} className='bg-theme-highlight w-[85%] h-[6vh] rounded'>Sign Up</button>
+        <button onClick={handleFormSubmit} className='bg-green-500 text-white hover:bg-green-600 w-[85%] h-[6vh] rounded'>Sign Up</button>
         <div className='w-full flex justify-center items-center -mt-6'>
             <h1>Already Have An Account? <span onClick={() => setSignUpForm(false)} className='text-blue-500 cursor-pointer'>Login Instead.</span></h1>
         </div>
