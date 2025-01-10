@@ -14,7 +14,6 @@ const LandingPage = () => {
       </div>
   
    
-      <Footer />
       
     </div>
   )
