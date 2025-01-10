@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react'
 import ReactMarkdown from "react-markdown";
+import { toast } from 'react-toastify';
 
 const ChatComponent = () => {
 
@@ -21,6 +22,11 @@ const ChatComponent = () => {
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
             setIsLoading(true);
+
+            if(inputRef.current.value == ''){
+                toast.error("Please type something to start conversation.")
+            }
+
             setChatLog((prevChatLog) => [...prevChatLog, { text: userInput, isUser: true }]);
             console.log(chatLog)
             setUserInput("");

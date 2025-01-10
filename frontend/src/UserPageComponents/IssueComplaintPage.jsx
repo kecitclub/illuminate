@@ -1,8 +1,12 @@
 ﻿import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import { backend_api } from '../handles/ApiHandles';
+import ClipLoader from "react-spinners/ClipLoader";
 
 const IssueComplaintPage = () => {
+
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const [formData, setFormData] = useState({
     title: "",
@@ -16,9 +20,11 @@ const IssueComplaintPage = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     if(formData.title == '' || formData.description == '' || formData.location == ''){
       toast.error("The fields cannot be empty.")
+      setIsLoading(false);
       return;
     }
 
@@ -38,11 +44,12 @@ const IssueComplaintPage = () => {
           console.log(error)
         } 
       }finally{
+        setIsLoading(false);
         setFormData({
           title: '',
           description: '',
           location: '',
-        })
+        });
       }
     }
     submitIssue();
@@ -66,9 +73,18 @@ const IssueComplaintPage = () => {
                 <input value={formData.location} onChange={handleFormInput} name='location' id='location' type="text" placeholder='Enter the location for the complaint' className='h-[6vh] rounded px-4 py-2 bg-theme-primary border-b-2 border-black w-[60%] focus:outline-none' />
               </div>
               <div className='h-auto w-[40%] flex justify-between items-end'>
-                <button onClick={handleFormSubmit} className='h-full w-full bg-orange-500 hover:bg-orange-600 py-2 px-4 brounded text-xl'>Submit The Issue</button>
+                <button onClick={handleFormSubmit} className={`h-full w-full bg-orange-500 hover:bg-orange-600 py-2 px-4 rounded text-xl ${isLoading ? 'select-none pointer-events-none': ''}`}>
+                  {isLoading ? (
+                    <ClipLoader
+                    color={'orange'}
+                    size={20}
+                    aria-label="Loading Spinner"
+                    />
+                  ): (
+                    <span>Submit The Issue</span>
+                  )}
+                </button>
               </div>
-              
             </form>
         </div>
     </div>

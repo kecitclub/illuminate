@@ -7,7 +7,6 @@ const Intro = () => {
             <h1 className='text-9xl scale-[1.2] ml-[8%]'>Jana Sewa</h1>
             <h3 className='text-xl font-bebas'>"Your Service Our Duty"</h3>
         </div>
-
     </div>
   )
 }
