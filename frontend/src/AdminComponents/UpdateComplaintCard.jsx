@@ -1,4 +1,4 @@
-﻿import { faBuilding, faCheck, faCircleInfo, faInfo, faLocationPin, faPen, faRightFromBracket, faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
+﻿import { faBuilding, faCheck, faCircleInfo, faInfo, faLocationPin, faPen, faRightFromBracket, faTrash, faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { backend_api } from '../handles/ApiHandles';
@@ -18,6 +18,28 @@ const UpdateComplaintCard = ({id, title, description, progress, username, locati
     const navigateToWriteAReport = (e) => {
         e.stopPropagation();
         navigate('/admin/writeAReport/' + id)
+    }
+    const navigateToDeleteIssue = (e) => {
+        e.stopPropagation();
+        const delFunction = async () => {
+
+            try{
+                const response = await backend_api.delete('/complaintDeleteView/' + id + '/');
+                if(response.status == 204){
+                    toast.success("Deleted the complaint successfully");
+                }
+            }catch(error){
+                if(error.response){
+                    toast.error("Couldn't delete the data"); 
+                }else if(error.request){
+                    toast.error("Couldn't connect to the server, Please try again later.")
+                }else{
+                    toast.error("Some error occurred");
+                    console.log(error);
+                }
+            }
+        }
+        delFunction();
     }
     
   return (
@@ -52,6 +74,13 @@ const UpdateComplaintCard = ({id, title, description, progress, username, locati
             <button onClick={navigateToWriteAReport} className='px-4 py-1 bg-green-500 rounded'>
                 <span>Write A Report On This Issue</span>
                 <FontAwesomeIcon className={`group-hover:inline hidden ml-2  transition-all duration-150`} icon={faPen} />    
+            </button>
+        </div>
+
+        <div className={`${isExpanded ? '' : 'hidden'} group absolute right-3 top-3 active:scale-[1.02]`}>
+            <button onClick={navigateToDeleteIssue} className='px-4 py-1 bg-red-500 rounded'>
+                <span>Delete This</span>
+                <FontAwesomeIcon className={`group-hover:inline hidden ml-2  transition-all duration-150`} icon={faTrash} />    
             </button>
         </div>
 
