@@ -102,6 +102,30 @@ class VerifyComplaintView(APIView):
         return Response({"detail": "Verified the complaint successfully"}, status=status.HTTP_200_OK)
 
 
+class ComplaintDeleteAdminView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def delete(self, request, complaint_id):
+        user = request.user
+        if not user.is_admin:
+            return Response({"detail": "You cannot delete the complaints"}, status=status.HTTP_403_FORBIDDEN)
+        
+        if not complaint_id:
+            return Response({"detail": "Complaint ID is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        
+        try:
+            complaint = Complaint.objects.get(id=complaint_id)
+        except Complaint.DoesNotExist:
+            return Response({"detail": "Complaint not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        complaint.delete()
+        return Response({"detail": "Deleted the complaint successfully"}, status=status.HTTP_204_NO_CONTENT)
+
+
+
+
 class ProgressReportsByComplaintView(APIView):
     
     permission_classes = [IsAuthenticated]
