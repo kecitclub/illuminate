@@ -8,7 +8,7 @@ const Intro = (props) => {
             <h1 className='text-7xl scale-[1.2] ml-[8%]'>Jana Sewa</h1>
             <h3 className='text-xl font-bebas'>"Your <span className='text-green-400 text-3xl'>Service</span> Our Duty"</h3><br></br>
             <h4 >Jana Sewa is a citizen service platform available in some regions for addressing public grievances and ensuring better governance. If your country has a platform like this, you can register your complaint online or in person. </h4> <br />
-            <button className='p-2 rounded-lg bg-green-500 border-2 border-black text-white hover:bg-green-600 scale-105 ease-in' onClick={()=>props.handleBtnClicked()}>Know More</button>
+            <button className='p-2 rounded-lg bg-green-500 text-white hover:bg-green-600 scale-105 ease-in' onClick={()=>props.handleBtnClicked()}>Know More</button>
         </div>
     </div>
   )
